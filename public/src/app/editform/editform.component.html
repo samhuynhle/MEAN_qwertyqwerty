@@ -1,0 +1,23 @@
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+
+<div>
+    <div *ngIf="success_message" style="color: red">
+            <p *ngFor="let messages of success_message">{{ messages.message }}</p>
+            <p></p>
+        </div>
+    <form (submit)="submit_form()">
+        <h3> Name: </h3>
+        <input type="text" name="datatoshow.name" [(ngModel)]="datatoshow.name"/>
+        <h3> Cuisine: </h3>
+        <input type="text" name="datatoshow.cuisine" [(ngModel)]="datatoshow.cuisine"/>
+        <input class="btn" style="margin-top: 2%" type="submit">
+        <!-- <button class="btn red" style="margin-top: 2%; margin-left: 2%" [routerLink]="['/']">Cancel</button> -->
+        <button class="btn red" style="margin-top: 2%; margin-left: 2%" (click)="cancel()">Cancel</button>
+
+    </form>
+</div>

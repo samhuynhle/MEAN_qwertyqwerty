@@ -1,0 +1,26 @@
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+            
+
+<button class="btn" style="margin-top: 2%" [routerLink]="['/restaurants/new']">Add New Restaurant</button>
+<table>
+    <tr>
+        <th>Restaurant</th>
+        <th>Cuisine</th>
+        <th>Actions available </th>
+    </tr>
+<tr *ngFor="let main of all_main">
+    <td> {{ main.name }} </td>
+    <td> {{ main.cuisine }} </td>
+    <td>
+        <button class="btn" style="margin-top: 2%; margin-left: 2%;" [routerLink]="'/restaurants/' + main._id">All Reviews</button>
+        <!-- <button class="btn" style="margin-top: 2%; margin-left: 2%;" [routerLink]="'/restaurants/' + main._id + '/edit'">Edit</button> -->
+        <button class="btn" style="margin-top: 2%; margin-left: 2%;" (click)="editselected(main)">Edit</button>
+        <button class="btn red" style="margin-top: 2%; margin-left: 2%;"(click)="clickDelete(main._id)">Delete</button>
+    </td>
+</table>
+
+<app-editform *ngIf="edit_selected" [datatoshow]="selected" [edit_selected]="edit_selected" [parent]="parent"></app-editform>
